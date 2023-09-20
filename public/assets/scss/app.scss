@@ -1,0 +1,111 @@
+$primary-color:#3d5afe;
+$secondary-color:#ff9800;
+$background-color:#eee;
+$normal-text-color:#111;
+$dark-gray: darkgray;
+$highlight: #333;
+$success-color: #c9993a;
+$alert-color: #de3636;
+$medium-gray: #505050;
+
+html,
+body{
+	width:100%;
+	height:100%;
+	background: $background-color;
+	margin:0;
+	border:0;
+	color:$normal-text-color;
+}
+
+
+.responsive-blog-footer {
+  background: darken($dark-gray, 25%);
+  padding: 3rem 3rem;
+  color: white;
+
+  h4 {
+    @media screen and (max-width: 39.9375em) {
+      font-size: 1.5rem;
+    }
+  }
+
+  p {
+    color: $dark-gray;
+  }
+
+  .mailing-list {
+    margin-bottom: 1.5rem;
+  }
+  .mailing-container {
+    margin-bottom: 2rem;
+  }
+
+  .about-section, .tag-section {
+    margin-bottom: 2rem;
+
+    a {
+      color: $highlight;
+    }
+  }
+
+  .subscribe-button {
+    background-color:$highlight;
+
+    &:hover {
+     background-color: darken($highlight, 5%);
+     transition: color 0.3s ease-in;
+    }
+  }
+
+  .fa-chevron-circle-up {
+    font-size: 3rem;
+    color: $dark-gray;
+
+     &:hover {
+     color: lighten($dark-gray, 15%);
+     transition: color 0.3s ease-in;
+    }
+  }
+}
+
+.stats-list {
+  list-style-type: none;
+  clear: left;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  margin-bottom: 30px;
+
+  .stats-list-positive {
+    color: $success-color;
+  }
+
+  .stats-list-negative {
+    color: $alert-color;
+  }
+
+  & > li {
+    display: inline-block;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid $medium-gray;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+
+    &:last-child {
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .stats-list-label {
+      display: block;
+      margin-top: 2px;
+      font-size: 0.9em;
+      font-weight: normal;
+    }
+  }
+}
+
