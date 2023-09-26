@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Roboto:wght@300&display=swap");
+body {
+  background-color: white;
+  font-family: "Kanit", sans-serif;
+  color: #204E8A;
+}
+
+.titulo {
+  font-size: 1.5em;
+  margin: 0.67em 0;
+  font-weight: bold;
+  color: #FFFF00;
+  background-color: #000080;
+}
+
+/*# sourceMappingURL=app.css.map */

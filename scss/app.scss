@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Roboto:wght@300&display=swap');
+
+$font-stack: 'Roboto', sans-serif;
+$primary-color: #204E8A;
+$fondo-azul: #000080;
+$amarillo: #FFFF00;
+
+body {
+  background-color: white;
+  font-family: 'Kanit', sans-serif;
+  color: $primary-color;
+}
+
+.titulo{
+  font-size: 1.5em;
+  margin: 0.67em 0;
+  font-weight: bold;
+  color: $amarillo;
+  background-color: $fondo-azul;
+}

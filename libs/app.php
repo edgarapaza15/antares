@@ -1,0 +1,92 @@
+<?php
+session_start();
+
+class App
+{
+  function __construct()
+  {
+    #echo "<p>Nueva APP</p>";
+
+    $url = $_GET['url'];
+    $url = rtrim($url, '/');
+    $url = explode('/', $url);
+
+    if ($_SESSION['katari']) {
+      #echo "Inicio de session";
+
+      if (empty($url[0])) {
+
+        $archivoController = "controller/login.php";
+        require_once $archivoController;
+        $controller = new Login;
+        $controller->loadModel('login');
+        $controller->render();
+        return false;
+      }
+
+      #echo "con parametros";
+      $archivoController = "controller/" . $url[0] . ".php";
+
+      if (file_exists($archivoController)) {
+        #echo "Si existe";
+        require_once $archivoController;
+        $controller = new $url[0];
+        $controller->loadModel($url[0]);
+
+        if (isset($url[1])) {
+          $controller->{$url[1]}();
+        } else {
+          $controller->render();
+        }
+      } else {
+        #echo "no existe";
+        require "controller/error.php";
+        $controller = new ErrorGeneral();
+        $controller->render();
+      }
+    } else {
+      #echo "No se ha logueado";
+
+      if (empty($url[0])) {
+
+        $archivoController = "controller/login.php";
+        require_once $archivoController;
+        $controller = new Login;
+        $controller->loadModel('login');
+        $controller->render();
+
+        return false;
+      }
+
+      #echo "con parametros";
+      $archivoController = "controller/" . $url[0] . ".php";
+
+      if (file_exists($archivoController)) {
+
+        if ($archivoController === 'controller/login.php') {
+          #echo "Login";
+          require_once $archivoController;
+          $controller = new login;
+          $controller->loadModel('login');
+
+          if ($url[1] == "user") {
+            $controller->user();
+          } else {
+            $controller->render();
+          }
+        } else {
+          //echo "otro archivo";
+          require "controller/error.php";
+          $controller = new ErrorGeneral();
+          $controller->render();
+        }
+      } else {
+        #echo "no existe";
+        require "controller/error.php";
+        $controller = new ErrorGeneral();
+        $controller->render();
+      }
+      //header("location:" . constant('URL'));
+    }
+  }
+}
