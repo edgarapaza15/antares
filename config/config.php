@@ -5,7 +5,7 @@ define('URL', 'http://localhost/antares2/');
 define('COMPANY', 'Pejeza');
 define('HOST', 'localhost');
 define('USER', 'usuario');
-define('DB', 'recepcion');
+define('DB', 'represa');
 define('PASSWORD', 'archivo123$');
 define('CHATSET', 'utf8mb4');
 

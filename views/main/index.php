@@ -1,9 +1,23 @@
 <?php require 'views/header.php'; ?>
 
+<script src="<?php echo constant('URL') ?>public/js/reloj.js"></script>
+
 <div class="grid-container">
 
-  <div class="row">
-    <h2>Resumen de estadisticas principales</h2>
+  <div class="grid-x">
+    <div class="cell medium-1">
+      <div class="">
+        <img src="<?php echo constant('URL') . $_SESSION['foto']; ?>" alt="Foto" class="redondeado">
+      </div>
+    </div>
+    <div class="cell medium-6">
+      <h2>Hola, <?php echo $_SESSION['nombre']; ?></h2>
+    </div>
+
+    <h3>
+      <div id="date"></div>
+      <div id="time"></div>
+    </h3>
   </div>
 
   <div class="grid-x grid-padding-x">

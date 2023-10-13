@@ -10,6 +10,6 @@ class Resumen extends Controller
 
   function render()
   {
-    $this->view->Render('resumen/index');
+    $this->view->Render('resumen/tablas');
   }
 }

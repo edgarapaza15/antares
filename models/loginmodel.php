@@ -7,11 +7,17 @@ class LoginModel extends Model
     parent::__construct();
   }
 
-  function Validar($datos)
+  public function Validar($datos)
   {
-    #echo "Insertar datos";
-    $sql = "SELECT idlogin,idpersonal,nivusu,chkusu FROM login WHERE email='" . $datos['user'] . "' and passwd = '" . $datos['passw'] . "';";
-    $res = $this->conn->ConsultaArray($sql);
-    return $res;
+    $sql = "SELECT idpersonal,nivusu,chkusu FROM represa.login WHERE email='" . $datos['user'] . "' and passwd = '" . $datos['passw'] . "';";
+    $data = $this->conn->ConsultaArray($sql);
+    return $data;
+  }
+
+  public function NombrePersonal($idpersonal)
+  {
+    $sql = "SELECT CONCAT(nombre,' ',apellidos) AS personal, foto FROM personal WHERE idpersonal = $idpersonal;";
+    $data = $this->conn->ConsultaArray($sql);
+    return $data;
   }
 }

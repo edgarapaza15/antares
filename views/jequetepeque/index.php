@@ -8,19 +8,26 @@
     </div>
   </div>
 
-  <form action="../Controllers/jequetepeque.controller.php" method="post">
+  <form action="<?php echo constant('URL') ?>jequetepeque/reporte" method="post">
     <!-- Embalse 1 -->
     <div class="card">
       <div class="grid-x grid-margin-x">
         <div class="cell small-12 medium-8">
           <h3>Embalse</h3>
           <label for="">
+            Hora:
+            <select name="hora" id="hora">
+              <option value="00:00">00:00</option>
+            </select>
+          </label>
+
+          <label for="">
             Altura de la Mira (m):
-            <input type="text" required name="alturamira" id="alturamira">
+            <input type="text" value="0.0" required name="alturamira" id="alturamira">
           </label>
           <label for="">
             Nivel de embalse (m.s.n.m.):
-            <input type="text" required name="nivelembalse" id="nivelembalse">
+            <input type="text" value="0.0" required name="nivelembalse" id="nivelembalse">
           </label>
         </div>
         <div class="cell small-12 medium-4"></div>
@@ -36,64 +43,73 @@
         </div>
 
         <div class="cell small-12 medium-3">
+          <span>.</span>
           <h2>1</h2>
         </div>
         <div class="cell small-12 medium-3">
           <label for="">
             a/h (m):
-            <input type="text" required name="ah1" id="ah1">
+            <input type="text" value="0.0" required name="ah1" id="ah1">
           </label>
           <label for="">
             Caudal (m):
-            <input type="text" required name="caudal1" id="caudal1">
+            <input type="text" value="0.0" required name="caudal1" id="caudal1">
           </label>
         </div>
         <div class="cell small-12 medium-3">
+          <span>.</span>
           <h2>2</h2>
         </div>
         <div class="cell small-12 medium-3">
           <label for="">
             a/h (m):
-            <input type="text" required name="ah2" id="ah2">
+            <input type="text" value="0.0" required name="ah2" id="ah2">
           </label>
           <label for="">
             Caudal (m):
-            <input type="text" required name="caudal2" id="caudal2">
+            <input type="text" value="0.0" required name="caudal2" id="caudal2">
           </label>
         </div>
 
         <!-- sep -->
 
         <div class="cell small-12 medium-3">
+          <span>.</span>
           <h2>3</h2>
         </div>
         <div class="cell small-12 medium-3">
           <label for="">
             a/h (m):
-            <input type="text" required name="ah3" id="ah3">
+            <input type="text" value="0.0" required name="ah3" id="ah3">
           </label>
           <label for="">
             Caudal (m):
-            <input type="text" required name="caudal3" id="caudal3">
+            <input type="text" value="0.0" required name="caudal3" id="caudal3">
           </label>
-          <label for="">
-            Caudal Total (m):
-            <input type="text" required name="caudalTotalCRadial" id="caudalTotalCRadial">
-          </label>
+          <hr>
+
         </div>
         <div class="cell small-12 medium-3">
+          <span>.</span>
           <h2>4</h2>
         </div>
         <div class="cell small-12 medium-3">
           <label for="">
             a/h (m):
-            <input type="text" required name="ah4" id="ah4">
+            <input type="text" value="0.0" required name="ah4" id="ah4">
           </label>
           <label for="">
             Caudal (m):
-            <input type="text" required name="caudal4" id="caudal4">
+            <input type="text" value="0.0" required name="caudal4" id="caudal4">
           </label>
 
+        </div>
+
+        <div class="cell  small-12 medium-6">
+          <label for="">
+            Caudal Total(m):
+            <input type="text" value="0.0" required name="caudalTotalCRadial" id="caudalTotalCRadial">
+          </label>
         </div>
       </div>
     </div>
@@ -103,40 +119,46 @@
       <div class="grid-x grid-margin-x">
         <div class="cell">
           <h3>Canal de Entrada <small>Compuertas Radiales(**)</small></h3>
+          <label for="">
+            Altura de la Mira (m):
+            <input type="text" value="0.0" required name="miraCanalEntrada" id="miraCanalEntrada">
+          </label>
         </div>
 
         <div class="cell small-12 medium-3">
+          <span>.</span>
           <h2>1</h2>
         </div>
         <div class="cell small-12 medium-3">
           <label for="">
-            Altura de la Mira (m):
-            <input type="text" required name="miraCanalEntrada" id="miraCanalEntrada">
-          </label>
-          <label for="">
             a/h (m):
-            <input type="text" required name="ahCanalEntrada" id="ahCanalEntrada">
+            <input type="text" value="0.0" required name="ahCanalEntrada" id="ahCanalEntrada">
           </label>
           <label for="">
             Caudal (m3/s):
-            <input type="text" required name="caudalCanalEntrada" id="caudalCanalEntrada">
+            <input type="text" value="0.0" required name="caudalCanalEntrada" id="caudalCanalEntrada">
           </label>
-          <label for="">
-            Caudal Total (m3/s):
-            <input type="text" required name="caudalTotalCanalEntrada" id="caudalTotalCanalEntrada">
-          </label>
+          <hr>
+
         </div>
         <div class="cell small-12 medium-3">
+          <span>.</span>
           <h2>2</h2>
         </div>
         <div class="cell small-12 medium-3">
           <label for="">
             a/h (m):
-            <input type="text" required name="ahCanalEntrada2" id="ahCanalEntrada2">
+            <input type="text" value="0.0" required name="ahCanalEntrada2" id="ahCanalEntrada2">
           </label>
           <label for="">
             Caudal (m3/s):
-            <input type="text" required name="caudalCanalEntrada2" id="caudalCanalEntrada2">
+            <input type="text" value="0.0" required name="caudalCanalEntrada2" id="caudalCanalEntrada2">
+          </label>
+        </div>
+        <div class="cell small-12 medium-6">
+          <label for="">
+            Caudal Total (m3/s):
+            <input type="text" value="0.0" required name="caudalTotalCanalEntrada" id="caudalTotalCanalEntrada">
           </label>
         </div>
       </div>
@@ -146,21 +168,21 @@
     <div class="card">
       <div class="grid-x grid-margin-x">
         <div class="cell">
-          <h3>Canal de Revistido</h3>
+          <h3>Canal de Revestido</h3>
         </div>
 
         <div class="cell small-12 medium-6">
           <label for="">
             Altura de la Mira (m):
-            <input type="text" required name="miraRevestido" id="miraRevestido">
+            <input type="text" required name="miraRevestido" id="miraRevestido" value="0.0">
           </label>
           <label for="">
             Caudal Circulante (m3/s):
-            <input type="text" required name="caudalRevestido" id="caudalRevestido">
+            <input type="text" required name="caudalRevestido" id="caudalRevestido" value="0.0">
           </label>
           <label for="">
             Canal Autorizado ALA (m3/s):
-            <input type="text" required name="canalAutorizadoRevestido" id="canalAutorizadoRevestido">
+            <input type="text" required name="canalAutorizadoRevestido" id="canalAutorizadoRevestido" value="0.0">
           </label>
         </div>
       </div>
@@ -168,7 +190,7 @@
     </div>
     <div class="grid-x">
       <div class="cell medium-6">
-        <button type="submit" class="button large" name="btnGuardar" id="btnGuardar">Guardar</button>
+        <button type="submit" class="button large warning" name="btnGuardar" id="btnGuardar">Guardar todo</button>
       </div>
       <div class="cell medium-6">
 

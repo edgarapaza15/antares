@@ -11,15 +11,15 @@
 
   <!-- If you are using the gem version, you need this only -->
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/app.css">
-
-
-
   <!--     <script src="<?php echo constant('URL'); ?>node_modules/modernizr/src/Modernizr.js"></script> -->
 
 </head>
 
-<body>
-  <div class="top-bar" id="responsive-menu">
+<body class="">
+  <div class="top-bar nav-verde" id="responsive-menu">
+    <div class="thumbnail">
+      <img src="<?php echo constant('URL'); ?>public/img/pejesa.jpg" alt="Pejesa" width="100px">
+    </div>
     <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
         <li class="menu-text">Antares <small>v1.0.0</small></li>

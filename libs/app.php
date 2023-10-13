@@ -48,45 +48,30 @@ class App
       #echo "No se ha logueado";
 
       if (empty($url[0])) {
+        #echo "URL vacia";
+        $archivoController = "controller/login.php";
+        require_once $archivoController;
+        $controller = new Login;
+        $controller->loadModel('main');
+        $controller->render();
+        return false;
+      }
+
+
+      #echo "Segundo: ".$url[1];
+      if (isset($url[1]) && $url[1] == "user") {
 
         $archivoController = "controller/login.php";
         require_once $archivoController;
         $controller = new Login;
         $controller->loadModel('login');
+        $controller->user();
         $controller->render();
-
-        return false;
-      }
-
-      #echo "con parametros";
-      $archivoController = "controller/" . $url[0] . ".php";
-
-      if (file_exists($archivoController)) {
-
-        if ($archivoController === 'controller/login.php') {
-          #echo "Login";
-          require_once $archivoController;
-          $controller = new login;
-          $controller->loadModel('login');
-
-          if ($url[1] == "user") {
-            $controller->user();
-          } else {
-            $controller->render();
-          }
-        } else {
-          //echo "otro archivo";
-          require "controller/error.php";
-          $controller = new ErrorGeneral();
-          $controller->render();
-        }
       } else {
-        #echo "no existe";
-        require "controller/error.php";
-        $controller = new ErrorGeneral();
-        $controller->render();
+        #echo "nada";
+
+        header("location: " . constant('URL'));
       }
-      //header("location:" . constant('URL'));
     }
   }
 }

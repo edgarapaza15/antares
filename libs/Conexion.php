@@ -1,18 +1,14 @@
 <?php
 class Conexion
 {
-  private $conn;
-  private $host;
-  private $user;
-  private $pass;
-  private $db;
+  public $conn;
 
   function __construct()
   {
-    $host = 'localhost';
-    $user = 'usuario';
-    $pass = 'archivo123$';
-    $db   = 'represa';
+    $host = constant('HOST');
+    $user = constant('USER');
+    $pass = constant('PASSWORD');
+    $db   = constant('DB');
 
     $this->conn = new mysqli($host, $user, $pass, $db);
 
@@ -21,14 +17,14 @@ class Conexion
       exit();
     }
 
-    #echo $this->conn->host_info . " ARP";
+    echo $this->conn->host_info . " ANTARES";
     return $this->conn;
   }
 
-  function ConsultaSin($sql)
+  public function ConsultaSin($sql)
   {
     # Sirve para: INSERT, UPDATE, DELETE
-    #echo $sql;
+    echo $sql;
 
     if (!$this->conn->query($sql)) {
       echo "Error. " . mysqli_error($this->conn);
@@ -39,7 +35,7 @@ class Conexion
     mysqli_close($this->conn);
   }
 
-  function ConsultaCon($sql)
+  public function ConsultaCon($sql)
   {
     # Sirve para: SELECT
 
@@ -53,7 +49,7 @@ class Conexion
     mysqli_close($this->conn);
   }
 
-  function ConsultaArray($sql)
+  public function ConsultaArray($sql)
   {
     # Sirve para: SELECT convertido en array
     #echo $sql;

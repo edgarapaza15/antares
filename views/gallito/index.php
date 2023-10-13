@@ -11,20 +11,34 @@ $hora = date('H:i:s');
     </div>
   </div>
 
-  <form action="../Controllers/gallito.controller.php" method="post" name="frmIngreso" id="frmIngreso">
+  <div>
+    <h3><?php echo $this->mensaje; ?></h3>
+  </div>
+
+  <form action="<?php echo constant('URL'); ?>gallito/reporte" method="post" name="frmIngreso" id="frmIngreso">
     <div class="grid-x grid-margin-x">
       <div class=" cell small-12 medium-6">
+        <label for="">
+          Hora:
+          <select name="hora" id="hora">
+            <option value="00:00">00:00</option>
+          </select>
+        </label>
         <label for="">
           Volumen de Crecidas <span>(Hm3)</span>
           <input type="text" required name="volumenCrecidas" id="volumenCrecidas" value="0.0">
         </label>
         <label for="">
-          Nivel de embalse <span>(m.s.n.m.)</span>
-          <input type="text" required name="nivelEmbalse" id="nivelEmbalse">
+          Laminación de Embalse (m3/s)
+          <input type="text" required name="laminacionGallito" id="laminacionGallito" value="0.0">
+        </label>
+        <label for="">
+          Nivel de embalse (m.s.n.m.)
+          <input type="text" required name="nivelEmbalse" id="nivelEmbalse" value="0.0">
         </label>
         <label for="">
           Volumen Total <span>(Hm3)</span>
-          <input type="text" required name="volumenTotal" id="volumenTotal">
+          <input type="text" required name="volumenTotal" id="volumenTotal" value="0.0">
         </label>
         <label for="">
           <button type="button" class="button" name="btnCalcular1" id="btnCalcular1">Calcular</button>
@@ -41,24 +55,15 @@ $hora = date('H:i:s');
     <!-- Formulario Ingreso -->
 
     <div class="card">
-      <div class="grid-x grid-padding-x grid-margin-y">
+      <div class="grid-x grid-padding-y">
         <div class="cell medium-12">
-          <h3>Ingreso</h3>
-        </div>
-        <div class="row small-12 medium-6">
 
         </div>
         <div class="row small-12 medium-6">
-
-        </div>
-        <div class="cell medium-3">
-          <h4>Estación Paltas</h4>
-          <img src="https://placehold.it/120" alt="Estacion Paltas">
-        </div>
-        <div class="cell medium-3">
+          <h5>ESTACION DE INGRESO LAS PALTAS</h5>
           <label for="">
             Mira (m)
-            <input type="text" required name="ingresoMiraPalta" id="ingresoMiraPalta">
+            <input type="text" required name="ingresoMiraPaltas" id="ingresoMiraPaltas" value="0.0">
           </label>
           <label for="">
             <button type="button" class="button" name="btnPaltas" id="btnPaltas">Calcular</button>
@@ -68,24 +73,21 @@ $hora = date('H:i:s');
             <input type="text" required name="ingresoCaudalPaltas" id="ingresoCaudalPaltas">
           </label>
         </div>
-        <div class="cell medium-3">
-          <h4>Estación Yonán</h4>
-          <img src="https://placehold.it/120" alt="Estacion Yonán">
-        </div>
-        <div class="cell medium-3">
+
+        <div class="row small-12 medium-6">
+          <h5>ESTACION DE INGRESO YONAN</h5>
           <label for="">
             Mira (m)
-            <input type="text" required name="ingresoMiraYonan" id="ingresoMiraYonan">
+            <input type="text" required name="ingresoMiraYonan" id="ingresoMiraYonan" value="0.0">
           </label>
           <label for="">
-            <button type="button" class="button" name="btnYonan" id="btnYonan">Calcular</button>
+            <button type="button" class="button" name="btnIngresoYonan" id="btnIngresoYonan">Calcular</button>
           </label>
           <label for="">
             Caudal (m3/s)
             <input type="text" required name="ingresoCaudalYonan" id="ingresoCaudalYonan">
           </label>
         </div>
-
       </div>
     </div>
 
@@ -93,19 +95,11 @@ $hora = date('H:i:s');
 
     <div class="card">
       <div class="grid-x grid-padding-x grid-margin-y">
-        <div class="cell medium-12">
-          <h3>Canal de descarga</h3>
-        </div>
-
-
-        <div class="cell medium-3">
-          <h4>Estación N° 2</h4>
-          <img src="https://placehold.it/120" alt="Estacion N° 2">
-        </div>
-        <div class="cell medium-3">
+        <div class="cell small-12 medium-6">
+          <h5>CANAL DE DESCARGA ESTACION N° 2</h5>
           <label for="">
             Mira (m)
-            <input type="text" required name="salidaMiraE2" id="salidaMiraE2">
+            <input type="text" required name="salidaMiraE2" id="salidaMiraE2" value="0.0">
           </label>
 
           <label for="">
@@ -118,14 +112,11 @@ $hora = date('H:i:s');
           </label>
         </div>
 
-        <div class="cell medium-3">
-          <h4>Canal Minicentral</h4>
-          <img src="https://placehold.it/120" alt="Canal Minicentral">
-        </div>
-        <div class="cell medium-3">
+        <div class="cell small-12 medium-6">
+          <h5>CANAL MINICENTRAL</h5>
           <label for="">
             Mira (m)
-            <input type="text" required name="salidaMiraMinicentral" id="salidaMiraMinicentral">
+            <input type="text" required name="salidaMiraMinicentral" id="salidaMiraMinicentral" value="0.0">
           </label>
 
           <label for="">
@@ -139,33 +130,19 @@ $hora = date('H:i:s');
         </div>
 
 
-        <div class="cell medium-3">
+        <div class="cell small-12 medium-6">
           <h4>Canal Gallito Ciego</h4>
-          <img src="https://placehold.it/120" alt="Canal Gallito Ciego">
-        </div>
-        <div class="cell medium-3">
           <label for="">
             Mira (m)
-            <input type="text" required name="salidaMiraCGC" id="salidaMiraCGC">
+            <input type="text" required name="salidaMiraCGC" id="salidaMiraCGC" value="0.080">
           </label>
-
-          <label for="">
-            <button type="button" class="button" name="btncanalgc" id="btncanalgc">Calcular</button>
-          </label>
-
           <label for="">
             Caudal (m3/s)
-            <input type="text" required name="salidaCaudalCGC" id="salidaCaudalCGC">
+            <input type="text" required name="salidaCaudalCGC" id="salidaCaudalCGC" value="0.042">
           </label>
         </div>
-
-
-
-        <div class="cell medium-3">
+        <div class="cell small-12 medium-6">
           <h4>Canal Casa Torta</h4>
-          <img src="https://placehold.it/120" alt="Canal Casa Torta">
-        </div>
-        <div class="cell medium-3">
           <label for="">
             Mira (m)
             <input type="text" required name="salidaMiraCTorta" id="salidaMiraCTorta" value="s/m">
@@ -180,7 +157,7 @@ $hora = date('H:i:s');
 
       <label for="">
         <label for="">
-          <button type="button" class="button" name="btnCaudaltotal-e" id="btnCaudaltotal-e">Calcular</button>
+          <button type="button" class="button success large" name="btnCaudaltotal-e" id="btnCaudaltotal-e">CALCULAR CAUDAL TOTAL</button>
         </label>
         CAUDAL TOTAL (m3/s)
         <input type="text" required name="caudalTotal-e" id="caudalTotal-e">
@@ -188,17 +165,19 @@ $hora = date('H:i:s');
 
     </div>
 
+    <!-- EMBALSE DE COMPENSACION -->
+
     <div class="grid-x grid-padding-x grid-margin-x">
       <div class="cell medium-6">
         <div class="card grid-padding-x">
           <h4>Embalse de Compensación</h4>
           <label for="">
             Nivel de Embalse (m.s.n.m.)
-            <input type="text" required name="nivelEmbalseCompensacion" id="nivelEmbalseCompensacion">
+            <input type="text" required name="nivelEmbalseCompensacion" id="nivelEmbalseCompensacion" value="0.0">
           </label>
           <label for="">
             Volumen Total (Hm3)
-            <input type="text" required name="volumenTotalEmbalse" id="volumenTotalEmbalse">
+            <input type="text" required name="volumenTotalEmbalse" id="volumenTotalEmbalse" value="0.0">
           </label>
         </div>
       </div>
@@ -207,44 +186,37 @@ $hora = date('H:i:s');
     <div class="grid-x grid-padding-x grid-margin-x">
       <div class="cell medium-6">
         <div class="card grid-padding-x">
-          <h4>Compuertas</h4>
-          <p>N° 01</p>
+          <h5>Compuertas N° 01</h5>
+
           <label for="">
             Abertura
-            <input type="text" required name="aberturaComp1" id="aberturaComp1">
+            <input type="text" required name="aberturaComp1" id="aberturaComp1" value="0.0">
           </label>
           <label for="">
-            Volumen Total (Hm3)
-            <input type="text" required name="caudalComp1" id="caudalComp1">
+            CAUDAL
+            <input type="text" required name="caudalComp1" id="caudalComp1" value="0.0">
           </label>
         </div>
       </div>
       <div class="cell medium-6">
         <div class="card grid-padding-x">
-          <p>N° 02</p>
+          <h5>Compuertas N° 02</h5>
+
           <label for="">
-            Abertura
-            <input type="text" required name="aberturaComp2" id="aberturaComp2">
+            1.01
+            <input type="text" required name="aberturaComp2" id="aberturaComp2" value="0.0">
           </label>
           <label for="">
-            Volumen Total (Hm3)
-            <input type="text" required name="caudalComp2" id="caudalComp2">
+            CAUDAL
+            <input type="text" required name="caudalComp2" id="caudalComp2" value="0.0">
           </label>
         </div>
       </div>
-      <div class="cell medium-6">
 
-      </div>
 
-      <div class="cell small-12 medium-6">
-        <label for="">
-          Caudal total <span>(m3/s)</span>
-          <input type="text" required name="caudalTotal" id="caudalTotal">
-        </label>
-      </div>
 
       <div class="cell medium-6">
-        <button type="submit" class="button large" name="btnGuardar" id="btnGuardar">Guardar</button>
+        <button type="submit" class="button warning large" name="btnGuardar" id="btnGuardar">Guardar TODO</button>
       </div>
       <div class="cell medium-6">
         <!-- <button type="button" class="button large success" name="btnActualizar" id="btnActualizar">Actualizar</button> -->
@@ -252,4 +224,5 @@ $hora = date('H:i:s');
     </div>
   </form>
 </div>
+
 <?php require 'views/footer.php'; ?>

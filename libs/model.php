@@ -2,7 +2,6 @@
 
 class Model
 {
-  public $conn;
 
   function __construct()
   {

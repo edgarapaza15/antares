@@ -1,4 +1,3 @@
-console.log("hola");
 
 function redondear(num, decimales = 3) {
     var signo = (num >= 0 ? 1 : -1);
@@ -35,13 +34,13 @@ $("#btnPaltas").click(function(){
 	}
 });
 
-$("#btnYonan").click(function(){
+$("#btnIngresoYonan").click(function(){
 	var mirayonan = document.getElementById("ingresoMiraYonan").value;
 	if (mirayonan == "" ) {
 		alert("Debe ingresar el valor de MIRA Yonan");
 	}else{
-		var caudal1 = 10.8666 * Math.pow(mirayonan, 2.974);
-		document.getElementById("ingresoCaudalYonan").value = redondear(caudal1);
+		var caudalYonan = 6.3827 * Math.pow(mirayonan, 3.9078);
+		document.getElementById("ingresoCaudalYonan").value = redondear(caudalYonan);
 	}
 });
 
@@ -50,9 +49,9 @@ $("#btnEstacion2").click(function(){
 	if (mirae2 == "" ) {
 		alert("Debe ingresar el valor de MIRA en la Salida 2");
 	}else{
-		var caudal1 = 42.3849 * Math.pow(mirae2, 1.8399);
+		var caudalEstacion2 = 43.7187 * Math.pow(mirae2, 1.941);
 
-		document.getElementById("salidaCaudalE2").value = redondear(caudal1);
+		document.getElementById("salidaCaudalE2").value = redondear(caudalEstacion2);
 	}
 });
 
@@ -77,13 +76,13 @@ $("#btncanalgc").click(function(){
 });
 
 $("#btnCaudaltotal-e").click(function(){
-	var caudal1 = document.getElementById("salidaCaudalE2").value;
+	var caudalE2 = document.getElementById("salidaCaudalE2").value;
 	/*var caudal2 = document.getElementById("salidaCaudalMinicentral").value;*/
-	var caudal3 = document.getElementById("salidaCaudalCGC").value;
-	var caudal4 = document.getElementById("salidaCaudalCTorta").value;
+	var caudalCGC = document.getElementById("salidaCaudalCGC").value;
+	var caudalCT = document.getElementById("salidaCaudalCTorta").value;
 
 
-	var caudaltotal = (parseFloat(caudal1)+parseFloat(caudal3)+parseFloat(caudal4));
+	var caudaltotal = (parseFloat(caudalE2)+parseFloat(caudalCGC)+parseFloat(caudalCT));
 	console.log(caudaltotal);
 	document.getElementById("caudalTotal-e").value = redondear(caudaltotal);
 
