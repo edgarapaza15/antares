@@ -27,7 +27,17 @@
         <li><a href="<?php echo constant('URL'); ?>main">Inicio</a></li>
         <li><a href="<?php echo constant('URL'); ?>resumen">Resumen</a></li>
         <li class="has-submenu ">
-          <a href="<?php echo constant('URL'); ?>main">Datos Emsalse</a>
+          <a href="#">Listado en tablas</a>
+          <ul class="submenu menu vertical nested " data-submenu>
+            <li><a href="<?php echo constant('URL'); ?>listgallito">Listado Gallito</a></li>
+            <li><a href="<?php echo constant('URL'); ?>listtalambo">Listado Talambo Zaña</a></li>
+            <li><a href="<?php echo constant('URL'); ?>listjequetepeque">Listado Jequetepeque</a></li>
+            <li><a href="<?php echo constant('URL'); ?>listvalvulas">Listado Valvulas Howell Bunger y Aliviaderos</a></li>
+          </ul>
+        </li>
+
+        <li class="has-submenu ">
+          <a href="#">Datos Emsalse</a>
           <ul class="submenu menu vertical nested " data-submenu>
             <li><a href="<?php echo constant('URL'); ?>gallito">Embalse Gallito ciego</a></li>
             <li><a href="<?php echo constant('URL'); ?>talambozana">Bocatoma Talambo Zaña</a></li>
@@ -39,8 +49,7 @@
     </div>
     <div class="top-bar-right">
       <ul class="menu">
-        <li><input type="search" placeholder="Search"></li>
-        <li><button type="button" class="button">Search</button></li>
+
         <li><a href="<?php echo constant('URL'); ?>salir/end">Salir</a></li>
       </ul>
     </div>

@@ -11,8 +11,7 @@
 
       <script src="<?php echo constant('URL');?>public/js/core/jquery.min.js"></script>
       <script src="<?php echo constant('URL');?>public/js/foundation.min.js"></script>
-      <script src="<?php echo constant('URL');?>public/js/gallito.js"></script>
-      <script src="<?php echo constant('URL');?>public/js/talambo.js"></script>
+
       <script>
         $(document).foundation();
       </script>

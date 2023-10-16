@@ -1,7 +1,7 @@
 <?php
 class Conexion
 {
-  public $conn;
+  private $conn;
 
   function __construct()
   {
@@ -17,15 +17,13 @@ class Conexion
       exit();
     }
 
-    echo $this->conn->host_info . " ANTARES";
+    #lecho $this->conn->host_info . " ANTARES";
     return $this->conn;
   }
 
-  public function ConsultaSin($sql)
+  function ConsultaSin($sql)
   {
     # Sirve para: INSERT, UPDATE, DELETE
-    echo $sql;
-
     if (!$this->conn->query($sql)) {
       echo "Error. " . mysqli_error($this->conn);
       exit();
@@ -35,10 +33,9 @@ class Conexion
     mysqli_close($this->conn);
   }
 
-  public function ConsultaCon($sql)
+  function ConsultaCon($sql)
   {
     # Sirve para: SELECT
-
     if (!$result = $this->conn->query($sql)) {
       echo "Error: " . mysqli_error($this->conn);
       return false;
@@ -49,7 +46,7 @@ class Conexion
     mysqli_close($this->conn);
   }
 
-  public function ConsultaArray($sql)
+  function ConsultaArray($sql)
   {
     # Sirve para: SELECT convertido en array
     #echo $sql;

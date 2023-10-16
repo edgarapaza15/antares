@@ -22,8 +22,31 @@
           <label for="">
             Hora:
             <select name="hora" id="hora">
-              <option value="00:00">00:00</option>
-            </select>
+            <option value="00:00">00:00</option>
+            <option value="01:00">01:00</option>
+            <option value="02:00">02:00</option>
+            <option value="03:00">03:00</option>
+            <option value="04:00">04:00</option>
+            <option value="05:00">05:00</option>
+            <option value="06:00">06:00</option>
+            <option value="07:00">07:00</option>
+            <option value="08:00">08:00</option>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="12:00">12:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+            <option value="19:00">19:00</option>
+            <option value="20:00">20:00</option>
+            <option value="21:00">21:00</option>
+            <option value="22:00">22:00</option>
+            <option value="23:00">23:00</option>
+          </select>
           </label>
           <label for="">
             Nivel de embalse (m.s.n.m.):
@@ -62,7 +85,7 @@
         <div class="cell small-12 medium-6">
           <label for="">
             Mira(m):
-            <input type="text" required name="miracompuertaTalambo" id="miracompuertaTalambo" value="1.415">
+            <input type="text" required name="miracompuertaTalambo" id="miracompuertaTalambo" value="">
           </label>
 
           <label for="">
@@ -107,7 +130,7 @@
         <div class="cell small-12 medium-6">
           <label for="">
             Mira:
-            <input type="text" required name="miracompuertaGuadalupe" id="miracompuertaGuadalupe" value="0.0">
+            <input type="text" required name="miracompuertaGuadalupe" id="miracompuertaGuadalupe" value="">
           </label>
           <label for="">
             <button type="button" class="button" name="btnEmpalmeguadalupe" id="btnEmpalmeguadalupe">Calcular</button>
@@ -119,7 +142,6 @@
         </div>
       </div>
     </div>
-
     <!-- RIO JEQUETEPEQUE AGUAS ABAJO -->
     <div class="card">
       <div class="grid-x grid-padding-x">
@@ -227,46 +249,43 @@
           </label>
         </div>
       </div>
-
       <!-- sep -->
       <div class="cell small-12 medium-6">
         <span>.</span>
         <label for="">
           Mira(m):
-          <input type="text" required name="miraTalamboG" id="miraTalamboG" value="0.0">
+          <input type="text" required name="miraTalamboG" id="miraTalamboG" value="">
         </label>
       </div>
       <div class="cell small-12 medium-6">
         <label for="">
           CAUDAL(m3/s):
-          <input type="text" required name="caudalTalambozanaG1" id="caudalTalambozanaG1" value="0.0">
+          <input type="text"  name="caudalTalambozanaG1" id="caudalTalambozanaG1" value="" required>
         </label>
 
         <label for="">
-          <button type=" button" class="button large warning" name="btnCaudalTotalTalambo" id="btnCaudalTotalTalambo">Calcular Total</button>
+          <button type="button" class="button success" name="btnSalidaTotal" id="btnSalidaTotal">Calcular Salida Total</button>
         </label>
+
 
         <label for="">
           TOTAL SALIDA (m3/s):
-          <input type="text" required name="salidaTalambo" id="salidaTalambo">
+          <input type="text" name="salidaTalambo" id="salidaTalambo">
         </label>
 
       </div>
-
     </div>
-</div>
-
-<div class="grid-x grid-padding-x">
-
-  <div class="cell medium-6">
-    <button type="submit" class="button large" name="btnGuardar" id="btnGuardar">Guardar todo</button>
-  </div>
-  <div class="cell medium-6">
-    <!-- <button type="button" class="button large success" name="btnActualizar" id="btnActualizar">Actualizar</button> -->
-  </div>
-</div>
-
-</form>
+    <hr>
+    <div class="grid-x">
+      <div class="cell medium-6">
+        <button type="submit" class="button large warning" name="btnGuardar" id="btnGuardar">Guardar todo</button>
+      </div>
+      <div class="cell medium-6">
+        <!-- <button type="button" class="button large success" name="btnActualizar" id="btnActualizar">Actualizar</button> -->
+      </div>
+    </div>
+  </form>
 </div>
 
 <?php require 'views/footer.php'; ?>
+<script src="<?php echo constant('URL');?>public/js/talambo.js"></script>

@@ -23,8 +23,8 @@ $("#btnCalcular1").click(function(){
 	}
 });
 
-$("#btnPaltas").click(function(){
-	var mirapaltas = document.getElementById("ingresoMiraPalta").value;
+$("#btnLasPaltas").click(function(){
+	var mirapaltas = document.getElementById("ingresoMiraPaltas9").value;
 	if (mirapaltas == "" ) {
 		alert("Debe ingresar el valor de MIRA Paltas");
 	}else{
@@ -75,7 +75,7 @@ $("#btncanalgc").click(function(){
 	}
 });
 
-$("#btnCaudaltotal-e").click(function(){
+$("#btnCaudaltotal").click(function(){
 	var caudalE2 = document.getElementById("salidaCaudalE2").value;
 	/*var caudal2 = document.getElementById("salidaCaudalMinicentral").value;*/
 	var caudalCGC = document.getElementById("salidaCaudalCGC").value;
@@ -84,6 +84,6 @@ $("#btnCaudaltotal-e").click(function(){
 
 	var caudaltotal = (parseFloat(caudalE2)+parseFloat(caudalCGC)+parseFloat(caudalCT));
 	console.log(caudaltotal);
-	document.getElementById("caudalTotal-e").value = redondear(caudaltotal);
+	document.getElementById("caudalTotal").value = redondear(caudaltotal);
 
 });

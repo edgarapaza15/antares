@@ -5,7 +5,6 @@ class ErrorGeneral extends Controller
   function __construct()
   {
     parent::__construct();
-    #echo "<p>Error cargando el recurso</p>";
   }
 
   function render()

@@ -22,6 +22,29 @@ $hora = date('H:i:s');
           Hora:
           <select name="hora" id="hora">
             <option value="00:00">00:00</option>
+            <option value="01:00">01:00</option>
+            <option value="02:00">02:00</option>
+            <option value="03:00">03:00</option>
+            <option value="04:00">04:00</option>
+            <option value="05:00">05:00</option>
+            <option value="06:00">06:00</option>
+            <option value="07:00">07:00</option>
+            <option value="08:00">08:00</option>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="12:00">12:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+            <option value="19:00">19:00</option>
+            <option value="20:00">20:00</option>
+            <option value="21:00">21:00</option>
+            <option value="22:00">22:00</option>
+            <option value="23:00">23:00</option>
           </select>
         </label>
         <label for="">
@@ -63,10 +86,10 @@ $hora = date('H:i:s');
           <h5>ESTACION DE INGRESO LAS PALTAS</h5>
           <label for="">
             Mira (m)
-            <input type="text" required name="ingresoMiraPaltas" id="ingresoMiraPaltas" value="0.0">
+            <input type="text" required name="ingresoMiraPaltas9" id="ingresoMiraPaltas9" value="0.0">
           </label>
           <label for="">
-            <button type="button" class="button" name="btnPaltas" id="btnPaltas">Calcular</button>
+            <button type="button" class="button" name="btnLasPaltas" id="btnLasPaltas">Calcular</button>
           </label>
           <label for="">
             Caudal (m3/s)
@@ -157,10 +180,10 @@ $hora = date('H:i:s');
 
       <label for="">
         <label for="">
-          <button type="button" class="button success large" name="btnCaudaltotal-e" id="btnCaudaltotal-e">CALCULAR CAUDAL TOTAL</button>
+          <button type="button" class="button success large" name="btnCaudaltotal" id="btnCaudaltotal">CALCULAR CAUDAL TOTAL</button>
         </label>
         CAUDAL TOTAL (m3/s)
-        <input type="text" required name="caudalTotal-e" id="caudalTotal-e">
+        <input type="text" required name="caudalTotal" id="caudalTotal">
       </label>
 
     </div>
@@ -226,3 +249,4 @@ $hora = date('H:i:s');
 </div>
 
 <?php require 'views/footer.php'; ?>
+<script src="<?php echo constant('URL');?>public/js/gallito.js"></script>

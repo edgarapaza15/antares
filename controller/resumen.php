@@ -2,7 +2,6 @@
 
 class Resumen extends Controller
 {
-
   function __construct()
   {
     parent::__construct();
@@ -10,6 +9,6 @@ class Resumen extends Controller
 
   function render()
   {
-    $this->view->Render('resumen/tablas');
+    $this->view->Render('resumen/index');
   }
 }

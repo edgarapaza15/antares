@@ -31,20 +31,23 @@ $("#btnEmpalmeguadalupe").click(function(){
     }
 });
 
-$("#btnCaudalTotalTalambo").click(function(){
+$("#btnSalidaTotal").click(function(){
+    var a = document.getElementById("caudalcompuertaTalambo").value;
+    var b = document.getElementById("caudalcompuertaGuadalupe").value;
+    var c = document.getElementById("caudalTalambozanaG1").value;
 
-    let caudalTalamboT   = document.getElementById("caudalcompuertaTalambo").value;
-    let caudalGuadalupeT = document.getElementById("caudalcompuertaGuadalupe").value;
-    let caudalTalambozanaG12   = document.getElementById("caudalTalambozanaG1").value;
-
-    if (caudalTalamboT == "" ) {
+    if (a == "" ) {
         alert("Caudal Talambo Zaña Vacio");
-        if (caudalGuadalupeT == "" ) {
+    }else{
+        if (b == "" ) {
             alert("Caudal Guadalupe Vacio");
         }else{
-                var totalTalambos3 = parseFloat(caudalTalamboT)+parseFloat(caudalGuadalupeT)+parseFloat(caudalTalambozanaG12);
-                alert(totalTalambos3);
-                document.getElementById("salidaTalambo").value = redondear(totalTalambos3);
+            if(c == ""){
+                alert("Caudal Final vacio");
+            }else{
+                var suma = (parseFloat(a)+parseFloat(b)+parseFloat(c));
+                document.getElementById("salidaTalambo").value = redondear(suma);
+            }
         }
     }
 });
