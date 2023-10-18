@@ -14,4 +14,9 @@ class View
   {
     require 'views/' . $nombre . '.php';
   }
+
+  function RenderAdmin($nombre)
+  {
+    require 'admin/' . $nombre . '.php';
+  }
 }

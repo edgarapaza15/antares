@@ -15,16 +15,33 @@ class Login extends Controller
     echo $passw = trim(strtolower($_POST['password']));
 
     $res = $this->model->Validar(['user' => $user, 'passw' => $passw]);
+    #idpersonal,nivusu,chkusu
+    var_dump($res);
 
     if ($res) {
       $msg = "Validado correctamente";
+
       if ($res['chkusu']) {
-        $_SESSION['katari'] = $res['idpersonal'];
-        $_SESSION['nivel'] = $res['nivel'];
-        $persona = $this->model->NombrePersonal($res['idpersonal']);
-        $_SESSION['nombre'] = $persona['personal'];
-        $_SESSION['foto'] = $persona['foto'];
-        header('location: ' . constant('URL') . 'main');
+        switch ($res['nivusu']) {
+          case 1:
+            $_SESSION['katari'] = $res['idpersonal'];
+            $persona = $this->model->NombrePersonal($res['idpersonal']);
+            $_SESSION['nombre'] = $persona['personal'];
+            $_SESSION['foto'] = $persona['foto'];
+            header('location: ' . constant('URL') . 'sysadmin');
+            break;
+          case 2:
+            $_SESSION['katari'] = $res['idpersonal'];
+            $persona = $this->model->NombrePersonal($res['idpersonal']);
+            $_SESSION['nombre'] = $persona['personal'];
+            $_SESSION['foto'] = $persona['foto'];
+            header('location: ' . constant('URL') . 'main');
+            break;
+          default:
+            echo "Es necesario loguearse";
+            break;
+        }
+
       } else {
         $msg = "Usuario NO ACTIVO";
       }

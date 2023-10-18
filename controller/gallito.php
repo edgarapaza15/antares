@@ -36,7 +36,7 @@ class Gallito extends Controller
       $caudalComp1              = $_POST['caudalComp1'];
       $aberturaComp2            = $_POST['aberturaComp2'];
       $caudalComp2              = $_POST['caudalComp2'];
-      $idpersonal               = 1000;
+      $idpersonal               = $_SESSION['katari'];
 
       $res = $this->model->Guardar($hora,$volumenCrecidas,$nivelEmbalse,$volumenTotal,$volumenUtil,$caudalTotal,$ingresoMiraPaltas,$ingresoCaudalPaltas,$ingresoMiraYonan,$ingresoCaudalYonan,$salidaMiraE2,$salidaCaudalE2,$salidaMiraMinicentral,$salidaCaudalMinicentral,$salidaMiraCGC,$salidaCaudalCGC,$salidaMiraCTorta,$salidaCaudalCTorta,$nivelEmbalseCompensacion,$volumenTotalEmbalse,$aberturaComp1,$caudalComp1,$aberturaComp2,$caudalComp2,$idpersonal,$laminacionGallito);
 

@@ -40,7 +40,7 @@ class Talambozana extends Controller
       $miraTalamboG             = $_POST['miraTalamboG'];
       $caudalTalambozana        = $_POST['caudalTalambozanaG1'];
       $salidaTalambo            = $_POST['salidaTalambo'];
-      $idpersonal               = 1000;
+      $idpersonal               = $_SESSION['katari'];
 
       $res = $this->model->Guardar($hora,$nivelembalse1,$compuerta4,$compuerta5,$compuerta6,$miracompuertaTalambo,$caudalcompuertaTalambo,$compuerta1,$compuerta2,$compuerta3,$miracompuertaGuadalupe,$caudalcompuertaGuadalupe,$compu1,$compu2,$compu3,$compu4,$compu5,$compu6,$comptas,$mirapez,$caudalpez,$miraEscLim,$caudalEscLim,$miraBarrajo,$caudalBarrajo,$miraTalamboG,$caudalTalambozana,$salidaTalambo,$idpersonal);
 

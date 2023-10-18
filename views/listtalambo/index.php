@@ -59,10 +59,10 @@
 
       <tbody>
         <?php
-        include_once "models/dataGallito.php";
+        include_once "models/dataTalambo.php";
 
         foreach ($this->datos as $row) {
-          $datag = new DataGallito();
+          $datag = new DataTalambo();
           $datag = $row;
 
       ?>

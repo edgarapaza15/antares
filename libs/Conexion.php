@@ -17,19 +17,21 @@ class Conexion
       exit();
     }
 
-    #lecho $this->conn->host_info . " ANTARES";
+    #echo $this->conn->host_info . " ANTARES";
     return $this->conn;
   }
 
   function ConsultaSin($sql)
   {
     # Sirve para: INSERT, UPDATE, DELETE
+    echo "En SIN ". $sql;
     if (!$this->conn->query($sql)) {
       echo "Error. " . mysqli_error($this->conn);
       exit();
     }
 
-    return true;
+    return $response;
+
     mysqli_close($this->conn);
   }
 
@@ -38,8 +40,8 @@ class Conexion
     # Sirve para: SELECT
     if (!$result = $this->conn->query($sql)) {
       echo "Error: " . mysqli_error($this->conn);
-      return false;
-      exit();
+
+
     }
 
     return $result;
@@ -49,7 +51,6 @@ class Conexion
   function ConsultaArray($sql)
   {
     # Sirve para: SELECT convertido en array
-    #echo $sql;
 
     if (!$result = $this->conn->query($sql)) {
       echo "Error. " . mysqli_error($this->conn);

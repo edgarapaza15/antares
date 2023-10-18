@@ -1,0 +1,9 @@
+$item->nombre = $row['nombre'];
+$item->apellidos = $row['apellidos'];
+$item->sexo = $row['sexo'];
+$item->telefono = $row['telefono'];
+$item->fecha_nac = $row['fecha_nac'];
+$item->email = $row['email'];
+$item->direccion = $row['direccion'];
+$item->dni = $row['dni'];
+$item->foto = $row['foto'];

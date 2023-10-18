@@ -19,7 +19,7 @@ class Valvulas extends Controller
       $caudalValvula2     = $_POST['caudalValvula2'];
       $miraAliviadero     = $_POST['miraAliviadero'];
       $embalseAliviadero  = $_POST['embalseAliviadero'];
-      $idpersonal = 1000;
+      $idpersonal         = $_SESSION['katari'];
 
       $res = $this->model->Guardar($hora, $nivelEmbalse, $aberturaValvula, $caudalValvula, $caudalTotalValvula, $aberturaValvula2, $caudalValvula2, $miraAliviadero, $embalseAliviadero, $idpersonal);
       if ($res) {
