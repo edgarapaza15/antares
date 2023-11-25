@@ -23,7 +23,7 @@
     <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
         <li class="menu-text">Antares <small>v1.0.0</small></li>
-        <li><a href="<?php echo constant('URL'); ?>login">Login</a></li>
+
         <li><a href="<?php echo constant('URL'); ?>main">Inicio</a></li>
         <li><a href="<?php echo constant('URL'); ?>resumen">Resumen</a></li>
         <li class="has-submenu ">

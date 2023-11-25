@@ -10,13 +10,13 @@ class Login extends Controller
 
   function user()
   {
-    echo "Recibiendo datos de Login<br>";
-    echo $user = trim(strtolower($_POST['email']));
-    echo $passw = trim(strtolower($_POST['password']));
+
+    $user = trim(strtolower($_POST['email']));
+    $passw = trim(strtolower($_POST['password']));
 
     $res = $this->model->Validar(['user' => $user, 'passw' => $passw]);
     #idpersonal,nivusu,chkusu
-    var_dump($res);
+
 
     if ($res) {
       $msg = "Validado correctamente";
@@ -24,11 +24,7 @@ class Login extends Controller
       if ($res['chkusu']) {
         switch ($res['nivusu']) {
           case 1:
-            $_SESSION['katari'] = $res['idpersonal'];
-            $persona = $this->model->NombrePersonal($res['idpersonal']);
-            $_SESSION['nombre'] = $persona['personal'];
-            $_SESSION['foto'] = $persona['foto'];
-            header('location: ' . constant('URL') . 'sysadmin');
+            header('location: ' . constant('URL') . 'main');
             break;
           case 2:
             $_SESSION['katari'] = $res['idpersonal'];
@@ -41,14 +37,13 @@ class Login extends Controller
             echo "Es necesario loguearse";
             break;
         }
-
       } else {
         $msg = "Usuario NO ACTIVO";
       }
     } else {
       $msg = "Usuario no reconocido";
     }
-    echo $msg;
+
     $this->view->mensaje = $msg;
     $this->view->Render('login/index');
   }
