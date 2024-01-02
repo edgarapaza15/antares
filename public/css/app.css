@@ -44,3 +44,7 @@ img.redondeado {
 }
 
 /*# sourceMappingURL=app.css.map */
+
+.sin-estilo{
+  display: none;
+}

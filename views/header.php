@@ -11,7 +11,9 @@
 
   <!-- If you are using the gem version, you need this only -->
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/app.css">
-  <!--     <script src="<?php echo constant('URL'); ?>node_modules/modernizr/src/Modernizr.js"></script> -->
+  <!-- <script src="<?php echo constant('URL'); ?>node_modules/modernizr/src/Modernizr.js"></script> -->
+  <!--Graficos ECHARTS-->
+  <script src="<?php echo CONSTANT("URL");?>node_modules/echarts/dist/echarts.js"></script>
 
 </head>
 
