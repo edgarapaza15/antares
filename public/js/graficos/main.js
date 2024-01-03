@@ -5,54 +5,13 @@ graficoAntares(modo);
 $("#graficos-por-mes").addClass("sin-estilo");
 $("#graficos-por-mes").hide();
 $("#mainHoras").hide();
-
-//Filtro Button
-$("#btn-filtrar").click(function () {
-  let modoValor = $("#modo").val();
-  //console.log(modoValor);
-  if (modoValor == "dia") {
-    let modo = modoValor;
-    graficoAntares(modo,gallitoColumna,jequetepequeColumna,talambozanaColumna,valvulasColumna);
-    $("#main").show();
-  } else if (modoValor == "mes") {
-    let modo = modoValor;
-    $("#btn-mes").show();
-    $("#fecha-mes").show();
-    graficoAntares(modo,gallitoColumna,jequetepequeColumna,talambozanaColumna,valvulasColumna);
-    $("#main").show();
-    //al presionar el boton
-    $("#btn-mes").click(function () {
-      let mes = $("#fecha-mes").val();
-      //$("#main").hide();
-      $("#graficos-por-mes").removeClass("sin-estilo");
-      $("#graficos-por-mes").show();
-      graficoAntaresMeses(mes,gallitoColumna,jequetepequeColumna,talambozanaColumna,valvulasColumna);
-    });
-  } else if (modoValor == "hora") {
-    $("#mainHoras").show();
-    $("#btn-hora").show();
-    $("#fecha").show();
-    //$("#main").hide();
-    // $("#btn-filtrar").hide();
-    // $('#btn-filtrar').addClass("style-none");
-    let fecha = "";
-    graficoAntaresHoras(fecha,gallitoColumna,jequetepequeColumna,talambozanaColumna,valvulasColumna);
-    $("#btn-hora").click(function () {
-      $("#mainHoras").show();
-      let fecha = $("#fecha").val();
-      //$("#main").hide();
-      graficoAntaresHoras(fecha,gallitoColumna,jequetepequeColumna,talambozanaColumna,valvulasColumna);
-      //console.log(modo);
-    });
-  }
-});
 //cuando elija las columnas y presione el boton
 $("#filtrar-columnas").click(function () {
-  let gallitoColumna = $("#gallitoColumna").val();
-  let jequetepequeColumna = $("#jequetepequeColumna").val();
-  let talambozanaColumna = $("#talambozanaColumna").val();
-  let valvulasColumna = $("#valvulasColumna").val();
-  //console.log(gallitoColumna+" "+jequetepequeColumna+" "+talambozanaColumna+" "+valvulasColumna)
+  gallitoColumna = $("#gallitoColumna").val();
+  jequetepequeColumna = $("#jequetepequeColumna").val();
+  talambozanaColumna = $("#talambozanaColumna").val();
+  valvulasColumna = $("#valvulasColumna").val();
+  //console.log(gallitoColumna+" "+jequetepequeColumna+" "+talambozanaColumna+" "+valvulasColumna+" filtrar-columnas")
   graficoAntares(modo,gallitoColumna,jequetepequeColumna,talambozanaColumna,valvulasColumna);
   //Filtro Button
   $("#btn-filtrar").click(function () {
@@ -95,6 +54,48 @@ $("#filtrar-columnas").click(function () {
     }
   });
 });
+//Filtro Button
+$("#btn-filtrar").click(function () {
+  let modoValor = $("#modo").val();
+  //console.log(modoValor);
+  //console.log(gallitoColumna+" "+jequetepequeColumna+" "+talambozanaColumna+" "+valvulasColumna+"btn-filtrar  ")
+  if (modoValor == "dia") {
+    let modo = modoValor;
+    graficoAntares(modo,gallitoColumna,jequetepequeColumna,talambozanaColumna,valvulasColumna);
+    $("#main").show();
+  } else if (modoValor == "mes") {
+    let modo = modoValor;
+    $("#btn-mes").show();
+    $("#fecha-mes").show();
+    graficoAntares(modo,gallitoColumna,jequetepequeColumna,talambozanaColumna,valvulasColumna);
+    $("#main").show();
+    //al presionar el boton
+    $("#btn-mes").click(function () {
+      let mes = $("#fecha-mes").val();
+      //$("#main").hide();
+      $("#graficos-por-mes").removeClass("sin-estilo");
+      $("#graficos-por-mes").show();
+      graficoAntaresMeses(mes,gallitoColumna,jequetepequeColumna,talambozanaColumna,valvulasColumna);
+    });
+  } else if (modoValor == "hora") {
+    $("#mainHoras").show();
+    $("#btn-hora").show();
+    $("#fecha").show();
+    //$("#main").hide();
+    // $("#btn-filtrar").hide();
+    // $('#btn-filtrar').addClass("style-none");
+    let fecha = "";
+    graficoAntaresHoras(fecha,gallitoColumna,jequetepequeColumna,talambozanaColumna,valvulasColumna);
+    $("#btn-hora").click(function () {
+      $("#mainHoras").show();
+      let fecha = $("#fecha").val();
+      //$("#main").hide();
+      graficoAntaresHoras(fecha,gallitoColumna,jequetepequeColumna,talambozanaColumna,valvulasColumna);
+      //console.log(modo);
+    });
+  }
+});
+
 //funciona correctamente - falta seleccionar por nombre de columna`
 function graficoAntares(modo,gallitoColumna,jequetepequeColumna,talambozanaColumna,valvulasColumna) {
   $.ajax({
@@ -108,9 +109,9 @@ function graficoAntares(modo,gallitoColumna,jequetepequeColumna,talambozanaColum
       valvulasColumna,
     },
     success: function (response) {
-      console.log(response);
+      //console.log(response);
       let data = JSON.parse(response);
-      console.log(data);
+      //console.log(data);
 
       var chartDom = document.getElementById("main");
       var myChart = echarts.init(chartDom);
