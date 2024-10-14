@@ -4,7 +4,6 @@
   <div class="grid-x grid-padding-x">
     <div class="cell small-12 medium-12">
       <h3>Operación Diaria Bocatoma Jequetepeque</h3>
-      <p>Fecha: 08/08/2023 - Hora: 08:00:00</p>
       <div>
         <h3><?php echo $this->mensaje; ?></h3>
       </div>

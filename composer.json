@@ -1,0 +1,6 @@
+{
+    "require": {
+        "phpunit/php-timer": "^7.0",
+        "phpoffice/phpspreadsheet": "^2.0"
+    }
+}

@@ -8,10 +8,63 @@ class Listvalvulas extends Controller
     $this->view->datos = [];
   }
 
-  function render()
+   public function fecha1()
   {
-    $res = $this->model->ListadoValvulas();
+    if(isset($_POST['btnBuscar']))
+    {
+      #echo "press";
+      $fecInicial = $_POST['fecInicial'];
+      $fecFinal   = $_POST['fecFinal'];
+
+      if(!empty($fecInicial))
+      {
+        #$msg = "no vacio";
+        if(!empty($fecFinal))
+        {
+          #echo "Buscar 2 fechas";
+          $res = $this->model->ListadoValvulas2($fecInicial,$fecFinal);
+        }else
+        {
+          #$msg = "Buscar 1 fechas";
+          $res = $this->model->ListadoValvulas($fecInicial);
+        }
+      }else{
+        $msg = "Fecha no seleccionada";
+      }
+    }
+
+    $this->view->datos = $res;
+    $this->view->mensaje = $msg;
+    $this->view->Render('listvalvulas/index');
+  }
+
+  public function Mes()
+  {
+    if(isset($_POST['btnBuscar2']))
+    {
+      #echo "press2";
+      $mes  = $_POST['cbomes'];
+      $anio = $_POST['cboanio'];
+      if(!empty($mes))
+      {
+        #echo "Con mes";
+        $res = $this->model->ListadoValvulasMes($mes,$anio);
+      }else{
+        #echo "Sin mes";
+        $this->view->mensaje = "Debe obligatoriamente seleccionar un MES";
+
+      }
+    }
     $this->view->datos = $res;
     $this->view->Render('listvalvulas/index');
   }
+
+  function render()
+  {
+    $fechaHoy = date('Y-m-d');
+    $res = $this->model->ListadoValvulas($fechaHoy);
+    $this->view->datos = $res;
+    $this->view->Render('listvalvulas/index');
+  }
+
 }

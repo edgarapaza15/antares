@@ -40,7 +40,7 @@ class Gallito extends Controller
 
       $res = $this->model->Guardar($hora,$volumenCrecidas,$nivelEmbalse,$volumenTotal,$volumenUtil,$caudalTotal,$ingresoMiraPaltas,$ingresoCaudalPaltas,$ingresoMiraYonan,$ingresoCaudalYonan,$salidaMiraE2,$salidaCaudalE2,$salidaMiraMinicentral,$salidaCaudalMinicentral,$salidaMiraCGC,$salidaCaudalCGC,$salidaMiraCTorta,$salidaCaudalCTorta,$nivelEmbalseCompensacion,$volumenTotalEmbalse,$aberturaComp1,$caudalComp1,$aberturaComp2,$caudalComp2,$idpersonal,$laminacionGallito);
 
-      if ($res) {
+      if ($res==TRUE) {
         $msg = "Guardado";
       } else {
         $msg = "No guardado. Error";

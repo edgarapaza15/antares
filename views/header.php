@@ -5,16 +5,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Antares</title>
-  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/normalize.css">
-  <!-- <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"> -->
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/foundation.css">
-
-  <!-- If you are using the gem version, you need this only -->
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/app.css">
-  <!-- <script src="<?php echo constant('URL'); ?>node_modules/modernizr/src/Modernizr.js"></script> -->
   <!--Graficos ECHARTS-->
   <script src="<?php echo CONSTANT("URL");?>node_modules/echarts/dist/echarts.js"></script>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 
 <body class="">
@@ -52,8 +49,7 @@
     <div class="top-bar-right">
       <ul class="menu">
 
-        <li><a href="<?php echo constant('URL'); ?>salir/end">Salir</a></li>
-      </ul>
+        <li><a href="<?php echo constant('URL'); ?>salir/end">Salir</a></li> </ul>
     </div>
   </div>
   <br>

@@ -58,7 +58,7 @@ class ListgallitoModel extends Model
     $items = [];
 
     $sql = "SELECT idgallito,hora,volumenCrecidas,nivelEmbalse,volumenTotal,volumenUtil,caudalTotal,ingresoMiraPaltas,ingresoCaudalPaltas,ingresoMiraYonan,ingresoCaudalYonan,salidaMiraE2,salidaCaudalE2,salidaMiraMinicentral,salidaCaudalMinicentral,salidaMiraCGC,salidaCaudalCGC,salidaMiraCTorta,salidaCaudalCTorta,nivelEmbalseCompensacion,volumenTotalEmbalse,aberturaComp1,caudalComp1,aberturaComp2,caudalComp2,idpersonal,laminacionGallito FROM gallito WHERE fecCreate between '$fecInicial%' AND '$fecFinal%';";
-    echo $sql;
+
     $res = $this->conn->ConsultaCon($sql);
 
     while ($row = $res->fetch_array(MYSQLI_ASSOC)) {
@@ -103,7 +103,7 @@ class ListgallitoModel extends Model
     $items = [];
 
     $sql = "SELECT idgallito,hora,volumenCrecidas,nivelEmbalse,volumenTotal,volumenUtil,caudalTotal,ingresoMiraPaltas,ingresoCaudalPaltas,ingresoMiraYonan,ingresoCaudalYonan,salidaMiraE2,salidaCaudalE2,salidaMiraMinicentral,salidaCaudalMinicentral,salidaMiraCGC,salidaCaudalCGC,salidaMiraCTorta,salidaCaudalCTorta,nivelEmbalseCompensacion,volumenTotalEmbalse,aberturaComp1,caudalComp1,aberturaComp2,caudalComp2,idpersonal,laminacionGallito FROM gallito WHERE fecCreate between '$anio-$mes-01%' AND '$anio-$mes-31%';";
-    echo $sql;
+
     $res = $this->conn->ConsultaCon($sql);
 
     while ($row = $res->fetch_array(MYSQLI_ASSOC)) {

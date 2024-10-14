@@ -24,13 +24,13 @@ class Conexion
   function ConsultaSin($sql)
   {
     # Sirve para: INSERT, UPDATE, DELETE
-    echo "En SIN ". $sql;
     if (!$this->conn->query($sql)) {
       echo "Error. " . mysqli_error($this->conn);
+      return FALSE;
       exit();
     }
 
-    return $response;
+    return TRUE;
 
     mysqli_close($this->conn);
   }
@@ -40,8 +40,6 @@ class Conexion
     # Sirve para: SELECT
     if (!$result = $this->conn->query($sql)) {
       echo "Error: " . mysqli_error($this->conn);
-
-
     }
 
     return $result;

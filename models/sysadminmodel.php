@@ -38,12 +38,12 @@ class SysadminModel extends Model
 
   public function Create($nombre,$apellidos,$sexo,$telefono,$fecha_nac,$email,$direccion,$dni,$foto,$nivusu, $passwd1)
   {
-    echo "funcion create model";
+    #echo "funcion create model";
     $fecCreate = date("Y-m-d H:i:s");
     $sql = "INSERT INTO personal VALUES (null,'$nombre','$apellidos','$sexo','$telefono','$fecha_nac','$email','$direccion','$dni','$foto','$fecCreate','$fecCreate');";
 
     $res = $this->conn->ConsultaSin($sql);
-    echo $res;
+
     $sql2 = "SELECT idpersonal FROM personal ORDER BY idpersonal DESC LIMIT 1;";
     $ultimo = $this->conn->ConsultaArray($sql2);
 

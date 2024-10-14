@@ -1,7 +1,8 @@
 <?php require 'views/header.php'; ?>
 
-<script src="<?php echo constant('URL') ?>public/js/reloj.js"></script>
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="<?php echo constant('URL'); ?>public/js/reloj.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/core/jquery.min.js"></script>
+
 
 
 <div class="grid-container">
@@ -91,21 +92,7 @@
   <!-- graficos -->
   <div class="row">
     <div class="small-12 medium-12 large-12 columns">
-      <div class="card">
-        <div class="card-section">
-          <h5>Users Behavior</h5>
-          <p>24 Hours performance</p>
-        </div>
-        <div class="card-section ">
-          <canvas id="chartHours" width="400" height="100"></canvas>
-        </div>
-        <div class="card-divider">
-          <hr>
-          <div class="stats">
-            <i class="fa fa-history"></i> Actualizado hace 3 minutos
-          </div>
-        </div>
-      </div>
+
     </div>
     <div class="grid-x">
       <div class="cell small-12 medium-6 large-9">

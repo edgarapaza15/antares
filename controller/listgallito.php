@@ -59,6 +59,9 @@ class Listgallito extends Controller
 
   function render()
   {
+    $fechaHoy = date('Y-m-d');
+    $res = $this->model->ListadoGallito($fechaHoy);
+    $this->view->datos = $res;
     $this->view->Render('listgallito/index');
   }
 }

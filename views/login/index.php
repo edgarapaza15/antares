@@ -5,17 +5,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Antares</title>
-  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/normalize.css">
-  <!-- <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"> -->
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/foundation.css">
-
-  <!-- If you are using the gem version, you need this only -->
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/app.css">
-  <!--     <script src="<?php echo constant('URL'); ?>node_modules/modernizr/src/Modernizr.js"></script> -->
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
-
-<body class="">
+<body>
   <div class="top-bar nav-verde" id="responsive-menu">
     <div class="thumbnail">
       <img src="<?php echo constant('URL'); ?>public/img/pejesa.jpg" alt="Pejesa" width="100px">
@@ -37,23 +33,24 @@
   <br>
 
   <div class="grid-container">
-    <div class="grid-x">
-      <div class="cell small-6">
-        <div class="thumbnail imagen">
+    <div class="grid-x grid-padding-x">
+      <div class="cell small-12 medium-6 large-6">
+        <div class="thumbnail">
           <img src="<?php echo constant('URL') ?>public/img/represa3.jpg" alt="Represa">
         </div>
       </div>
-      <div class="cell small-6 gris">
-        <div class="thumbnail center">
+
+      <div class="cell small-12 medium-6 large-6">
+        <div>
           <img src="<?php echo constant('URL') ?>public/img/pejesa.jpg" alt="Logo Pejesa" width="70%">
         </div>
-        <h1>Bienvenido</h1>
+        <h2 class="titulo">Bienvenido</h2>
         <?php echo $this->mensaje; ?>
 
         <form method="post" action="<?php echo constant('URL') ?>login/user" name="signup-form">
           <div class="">
-            <label>Email</label>
-            <input type="email" name="email" required />
+            <label>Usuario</label>
+            <input type="text" name="email" required />
           </div>
           <div class="">
             <label>Password</label>

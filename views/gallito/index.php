@@ -64,7 +64,7 @@ $hora = date('H:i:s');
           <input type="text" required name="volumenTotal" id="volumenTotal" value="0.0">
         </label>
         <label for="">
-          <button type="button" class="button" name="btnCalcular1" id="btnCalcular1">Calcular</button>
+          <button type="button" class="button" name="btnCalcular1" id="btnCalcular1">Calcular (Obligatorio)</button>
         </label>
         <label for="">
           Volumen Util <span>(Hm3)</span>
@@ -93,7 +93,7 @@ $hora = date('H:i:s');
           </label>
           <label for="">
             Caudal (m3/s)
-            <input type="text" required name="ingresoCaudalPaltas" id="ingresoCaudalPaltas">
+            <input type="text" required name="ingresoCaudalPaltas" id="ingresoCaudalPaltas" value="0">
           </label>
         </div>
 
@@ -108,7 +108,7 @@ $hora = date('H:i:s');
           </label>
           <label for="">
             Caudal (m3/s)
-            <input type="text" required name="ingresoCaudalYonan" id="ingresoCaudalYonan">
+            <input type="text" required name="ingresoCaudalYonan" id="ingresoCaudalYonan" value="0">
           </label>
         </div>
       </div>
@@ -131,7 +131,7 @@ $hora = date('H:i:s');
 
           <label for="">
             Caudal (m3/s)
-            <input type="text" required name="salidaCaudalE2" id="salidaCaudalE2">
+            <input type="text" required name="salidaCaudalE2" id="salidaCaudalE2" value="0">
           </label>
         </div>
 
@@ -148,7 +148,7 @@ $hora = date('H:i:s');
 
           <label for="">
             Caudal (m3/s)
-            <input type="text" required name="salidaCaudalMinicentral" id="salidaCaudalMinicentral">
+            <input type="text" required name="salidaCaudalMinicentral" id="salidaCaudalMinicentral" value="0">
           </label>
         </div>
 

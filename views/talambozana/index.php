@@ -4,9 +4,6 @@
   <div class="grid-x grid-padding-x grid-margin-y">
     <div class="cell small-12 medium-12">
       <h2>Operación Diaria Bocatoma Talambo Zaña</h2>
-      <p>Fecha: 07/08/2023 hora : 7:00:00</p>
-      <p>Total de Salida: 321 (m3/s)</p>
-      <p>Nivel de Embalse: 234534 (m.s.n.m)</p>
     </div>
     <div>
       <h3><?php echo $this->mensaje; ?></h3>

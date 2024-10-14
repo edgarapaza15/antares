@@ -4,7 +4,6 @@
   <div class="grid-x grid-margin-y">
     <div class="cell">
       <h3>OPERACIÓN DIARIA VÁLVULAS HOWELL BUNGER Y ALIVIADERO DE CRECIDAS</h3>
-      <p>Fecha: 08/05/2023 - Hora: 08:05:00</p>
       <div>
         <h3><?php echo $this->mensaje; ?></h3>
       </div>

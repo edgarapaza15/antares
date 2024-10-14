@@ -10,6 +10,7 @@
           <div class="cell small-12 large-4">
             Fecha inicial
             <input type="date" name="fecInicial" id="fecInicial" value="<?php echo $hoy = date('Y-m-d');?>">
+
           </div>
           <div class="cell small-12 large-4">
             Fecha Final
@@ -98,7 +99,6 @@
     ?>
 
     <div class="cell">
-
       <table class="stack" border="1px">
         <thead>
           <tr><!-- 1 -->
