@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 class Salir extends Controller
 {
 
@@ -8,16 +8,31 @@ class Salir extends Controller
     parent::__construct();
   }
 
-  function end()
+  public function end()
   {
+    echo "En salir";
+    // Limpiar todas las variables de sesión
+    $_SESSION = array();
+
+    // Destruir la cookie de sesión si existe
+    if (ini_get("session.use_cookies")) {
+      $params = session_get_cookie_params();
+      setcookie(session_name(), '', time() - 42000,
+        $params["path"], $params["domain"],
+        $params["secure"], $params["httponly"]
+      );
+    }
+
+    // Destruir la sesión
     session_destroy();
-    echo $_SESSION['katari'] = "";
-    echo $_SESSION['nivel'] = "";
-    $this->view->Render('login/index');
+
+    // Redirigir al login
+    header('location: ' . constant('URL') . 'login');
+    exit();
   }
 
   function render()
   {
-    $this->view->Render('login/index');
+    $this->end();
   }
 }

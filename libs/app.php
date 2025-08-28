@@ -5,36 +5,44 @@ class App
 {
   function __construct()
   {
-    #echo "<p>Nueva APP</p>";
+    //echo "<p>Nueva APP</p>";
 
-    $url = $_GET['url'];
+    // Validar y sanitizar la URL
+    $url = isset($_GET['url']) ? $_GET['url'] : '';
     $url = rtrim($url, '/');
     $url = explode('/', $url);
 
-    if ($_SESSION['katari']) {
+    // Verificar si el usuario está autenticado (sesión activa)
+    $isAuthenticated = isset($_SESSION['katari']) && !empty($_SESSION['katari']);
+
+    if ($isAuthenticated) {
       #echo "Inicio de session";
-
+      #echo "Session iniciada";
       if (empty($url[0])) {
-
-        $archivoController = "controller/login.php";
+        $archivoController = "controller/main.php";
         require_once $archivoController;
-        $controller = new Login;
-        $controller->loadModel('login');
+        $controller = new Main();
+        $controller->loadModel('main');
         $controller->render();
         return false;
       }
-
       #echo "con parametros";
       $archivoController = "controller/" . $url[0] . ".php";
-
       if (file_exists($archivoController)) {
         #echo "Si existe";
         require_once $archivoController;
         $controller = new $url[0];
         $controller->loadModel($url[0]);
 
-        if (isset($url[1])) {
-          $controller->{$url[1]}();
+        # numero de elementos del arreglo
+        $nparam = sizeof($url);
+
+        if ($nparam > 1) {
+          if ($nparam > 2) {
+            $controller->{$url[1]}($url[2]);
+          } else {
+            $controller->{$url[1]}();
+          }
         } else {
           $controller->render();
         }
@@ -44,23 +52,21 @@ class App
         $controller = new ErrorGeneral();
         $controller->render();
       }
-    } else {
-      #echo "No se ha logueado";
-
+    }else{
+      //echo "NO AUTENTICADO";
+      #echo "Session NO iniciada";
       if (empty($url[0])) {
         #echo "URL vacia";
         $archivoController = "controller/login.php";
         require_once $archivoController;
-        $controller = new Login;
-        $controller->loadModel('main');
+        $controller = new Login();
+        $controller->loadModel('login');
         $controller->render();
         return false;
       }
-
-
+      
       #echo "Segundo: ".$url[1];
       if (isset($url[1]) && $url[1] == "user") {
-
         $archivoController = "controller/login.php";
         require_once $archivoController;
         $controller = new Login;
@@ -69,9 +75,9 @@ class App
         $controller->render();
       } else {
         #echo "nada";
-
         header("location: " . constant('URL'));
       }
+      
     }
   }
 }

@@ -1,4 +1,8 @@
-<?php require 'views/header.php'; ?>
+<?php require 'views/header.php';
+
+  echo "Mi mensaje: ".$this->mensaje;
+
+?>
 
   <div class="grid-x">
     <div class="cell large-6">
@@ -7,17 +11,20 @@
           <div class="cell small-12 large-2">
             <h3>Reporte</h3>
           </div>
-          <div class="cell small-12 large-4">
+          <div class="cell small-12 large-3">
             Fecha inicial
             <input type="date" name="fecInicial" id="fecInicial" value="<?php echo $hoy = date('Y-m-d');?>">
 
           </div>
-          <div class="cell small-12 large-4">
+          <div class="cell small-12 large-3">
             Fecha Final
             <input type="date" name="fecFinal" id="fecFinal">
           </div>
           <div class="cell small-12 large-2">
             <button type="submit" name="btnBuscar" id="btnBuscar" class="button large">Buscar</button>
+          </div>
+          <div class="cell small-12 large-2">
+            <button type="button" id="btnExportar" class="button large success" onclick="exportarExcel()">Exportar Excel</button>
           </div>
         </div>
       </form>
@@ -73,11 +80,46 @@
           <div class="cell small-12 large-3">
             <button type="submit" name="btnBuscar2" id="btnBuscar2" class="button large success">Buscar</button>
           </div>
+          <div class="cell small-12 large-3">
+            <button type="button" id="btnExportar2" class="button large warning" onclick="exportarExcelMes()">Exportar Excel</button>
+          </div>
 
         </div>
       </form>
     </div>
   </div>
+
+  <script>
+  function exportarExcel() {
+    var fecInicial = document.getElementById('fecInicial').value;
+    var fecFinal = document.getElementById('fecFinal').value;
+    
+    var url = '<?php echo constant("URL");?>listgallito/exportToExcel?fecInicial=' + fecInicial;
+    if (fecFinal) {
+      url += '&fecFinal=' + fecFinal;
+    }
+    
+    window.location.href = url;
+  }
+  
+  function exportarExcelMes() {
+    var mes = document.getElementById('cbomes').value;
+    var anio = document.getElementById('cboanio').value;
+    
+    if (!mes) {
+      alert('Debe seleccionar un mes para exportar');
+      return;
+    }
+    
+    var url = '<?php echo constant("URL");?>listgallito/exportToExcel?mes=' + mes + '&anio=' + anio;
+    window.location.href = url;
+  }
+  
+  function exportarExcelActual() {
+    var url = '<?php echo constant("URL");?>listgallito/exportToExcel';
+    window.location.href = url;
+  }
+  </script>
 
   <div class="grid-x">
     <?php
@@ -191,6 +233,14 @@
         <?php } ?>
         </tbody>
       </table>
+      
+      <div class="grid-x" style="margin-top: 20px;">
+        <div class="cell">
+          <button type="button" class="button large expanded" onclick="exportarExcelActual()">
+            <i class="fa fa-download"></i> Exportar Datos Actuales a Excel
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 

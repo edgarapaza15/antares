@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Normalizer' => $vendorDir . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
     'SebastianBergmann\\Timer\\Duration' => $vendorDir . '/phpunit/php-timer/src/Duration.php',
     'SebastianBergmann\\Timer\\Exception' => $vendorDir . '/phpunit/php-timer/src/exceptions/Exception.php',
     'SebastianBergmann\\Timer\\NoActiveTimerException' => $vendorDir . '/phpunit/php-timer/src/exceptions/NoActiveTimerException.php',

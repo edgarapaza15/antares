@@ -52,16 +52,16 @@ $hora = date('H:i:s');
           <input type="text" required name="volumenCrecidas" id="volumenCrecidas" value="0.0">
         </label>
         <label for="">
-          Laminación de Embalse (m3/s)
-          <input type="text" required name="laminacionGallito" id="laminacionGallito" value="0.0">
-        </label>
-        <label for="">
           Nivel de embalse (m.s.n.m.)
           <input type="text" required name="nivelEmbalse" id="nivelEmbalse" value="0.0">
         </label>
         <label for="">
           Volumen Total <span>(Hm3)</span>
           <input type="text" required name="volumenTotal" id="volumenTotal" value="0.0">
+        </label>
+        <label for="">
+          Laminación de Embalse (m3/s)
+          <input type="text" required name="laminacionGallito" id="laminacionGallito" value="0.0">
         </label>
         <label for="">
           <button type="button" class="button" name="btnCalcular1" id="btnCalcular1">Calcular (Obligatorio)</button>

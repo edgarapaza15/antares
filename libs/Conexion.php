@@ -13,37 +13,42 @@ class Conexion
     $this->conn = new mysqli($host, $user, $pass, $db);
 
     if ($this->conn->connect_errno) {
-      echo "Error al contenctar a MySQL: (" . $this->conn->connect_errno . ") " . $this->conn->connect_error;
-      exit();
+      error_log("Error al conectar a MySQL: (" . $this->conn->connect_errno . ") " . $this->conn->connect_error);
+      throw new Exception("Error de conexión a la base de datos");
     }
 
-    #echo $this->conn->host_info . " ANTARES";
+    // Configurar charset
+    $this->conn->set_charset(constant('CHATSET'));
+    
     return $this->conn;
+  }
+
+  // Método para prepared statements
+  public function prepare($sql)
+  {
+    return $this->conn->prepare($sql);
   }
 
   function ConsultaSin($sql)
   {
     # Sirve para: INSERT, UPDATE, DELETE
     if (!$this->conn->query($sql)) {
-      echo "Error. " . mysqli_error($this->conn);
+      error_log("Error en consulta: " . mysqli_error($this->conn));
       return FALSE;
-      exit();
     }
 
     return TRUE;
-
-    mysqli_close($this->conn);
   }
 
   function ConsultaCon($sql)
   {
     # Sirve para: SELECT
     if (!$result = $this->conn->query($sql)) {
-      echo "Error: " . mysqli_error($this->conn);
+      error_log("Error en consulta: " . mysqli_error($this->conn));
+      return false;
     }
 
     return $result;
-    mysqli_close($this->conn);
   }
 
   function ConsultaArray($sql)
@@ -51,12 +56,25 @@ class Conexion
     # Sirve para: SELECT convertido en array
 
     if (!$result = $this->conn->query($sql)) {
-      echo "Error. " . mysqli_error($this->conn);
+      error_log("Error en consulta: " . mysqli_error($this->conn));
       return false;
     }
 
     $data = $result->fetch_array(MYSQLI_ASSOC);
     return $data;
-    mysqli_close($this->conn);
+  }
+
+  // Método para cerrar conexión
+  public function close()
+  {
+    if ($this->conn) {
+      $this->conn->close();
+    }
+  }
+
+  // Destructor para cerrar conexión automáticamente
+  public function __destruct()
+  {
+    $this->close();
   }
 }
