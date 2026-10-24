@@ -16,9 +16,14 @@
 
       <div class="grid-x">
         <div class="cell small-12 large-4">
-          <label for="">
-            Hora:
-            <select name="hora" id="hora">
+          <?php
+          date_default_timezone_set('America/Lima'); // Ajusta la zona horaria si lo necesitas
+          $hora_actual = date('H:00'); // Hora actual redondeada hacia abajo (ejemplo: 10:00)
+          ?>
+        <label for="">
+          Hora:
+          <select name="hora" id="hora">
+              <option value="<?php echo $hora_actual;?>" selected><?php echo $hora_actual;?></option>
               <option value="00:00">00:00</option>
               <option value="01:00">01:00</option>
               <option value="02:00">02:00</option>

@@ -47,7 +47,7 @@ class SysadminModel extends Model
     $sql2 = "SELECT idpersonal FROM personal ORDER BY idpersonal DESC LIMIT 1;";
     $ultimo = $this->conn->ConsultaArray($sql2);
 
-    $sql3 = "INSERT INTO login VALUES (null,".$ultimo['idpersonal'].",'$email',md5('$passwd1'),$nivusu,1);";
+    $sql3 = "INSERT INTO login VALUES (null,".$ultimo['idpersonal'].",'$email','$passwd1',$nivusu,1);";
     $this->conn->ConsultaSin($sql3);
 
     return $res;

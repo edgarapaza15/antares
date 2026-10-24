@@ -72,7 +72,7 @@ class App
         $controller = new Login;
         $controller->loadModel('login');
         $controller->user();
-        $controller->render();
+        //$controller->render();
       } else {
         #echo "nada";
         header("location: " . constant('URL'));

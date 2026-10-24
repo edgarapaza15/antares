@@ -10,7 +10,7 @@ class ValidarUsuario
 		{
 			$this->conn = new Conexion();
 			return $this->conn;
-			
+
 		}
 
 		function Validar($user, $pass)
@@ -73,7 +73,7 @@ class ValidarUsuario
 			$sql = "INSERT INTO asistencia VALUES (null,'$idpersonal','$fecha','$horaEntrada','$tipoS','$horasalida','$tiempoUso');";
 			$this->conn->ConsultaSin($sql);
 		}
-		
+
 		function Verificar($idpersonal,$fecha,$tipo)
 		{
 			$sql = "SELECT hora FROM asistencia WHERE idpersonal = $idpersonal AND fecha = '$fecha' AND tipo = '$tipo';";
@@ -91,7 +91,7 @@ class ValidarUsuario
 		{
 			$sql = "UPDATE login SET psw_usu = '$newpassword' WHERE id_personal = '$id' AND psw_usu = '$password';";
 			$data = $this->conn->ConsultaSin($sql);
-			
+
 		}
 
 	}

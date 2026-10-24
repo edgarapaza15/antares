@@ -3,18 +3,13 @@
 <script src="<?php echo constant('URL'); ?>public/js/reloj.js"></script>
 <script src="<?php echo constant('URL'); ?>public/js/core/jquery.min.js"></script>
 
-
-
 <div class="grid-container">
 
   <div class="grid-x">
     <div class="cell medium-1">
-      <div class="">
-        <img src="<?php echo constant('URL') . $_SESSION['foto']; ?>" alt="Foto" class="redondeado">
-      </div>
     </div>
     <div class="cell medium-6">
-      <h2>Hola, <?php echo $_SESSION['nombre']; ?></h2>
+        <h3>Resumen de la presa</h3>
     </div>
 
     <h3>

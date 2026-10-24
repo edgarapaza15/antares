@@ -7,34 +7,12 @@ class LoginModel extends Model
     parent::__construct();
   }
 
-  public function Validar($datos)
+  public function Validar($username, $passwd)
   {
-    // Sanitizar y validar entrada
-    $user = filter_var($datos['user'], FILTER_SANITIZE_EMAIL);
-    $passw = $datos['passw'];
-
-    if (!$user || !$passw) {
-      return false;
-    }
-
     // Usar prepared statement para prevenir SQL injection
-    $sql = "SELECT idpersonal, nivusu, chkusu, passwd FROM login WHERE email = ?";
-    $stmt = $this->conn->prepare($sql);
-
-    if ($stmt) {
-      $stmt->bind_param("s", $user);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      $data = $result->fetch_assoc();
-      $stmt->close();
-
-      // Verificar contraseña de forma segura
-      if ($data && password_verify($passw, $data['passwd'])) {
-        return $data;
-      }
-    }
-
-    return false;
+    $sql = "SELECT idpersonal, nivusu, chkusu FROM login WHERE email = '$username' and passwd = '$passwd'";
+    $res = $this->conn->ConsultaArray($sql);
+    return $res;
   }
 
   public function NombrePersonal($idpersonal)

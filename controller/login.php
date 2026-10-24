@@ -8,31 +8,19 @@ class Login extends Controller
     parent::__construct();
   }
 
-  public function user()
-  {
-    
-    $user = $_POST['txtusuario'];
-    $passw = $_POST['txtpassword'];
+  public function user() {
 
-    // Verificar token CSRF
-    if (!isset($_POST['csrf_token']) || !verifyCSRFToken($_POST['csrf_token'])) {
-      $this->view->mensaje = "Error de seguridad. Por favor, recargue la página.";
-      $this->view->Render('login/index');
-      return;
-    }
+    echo $user = $_POST['txtusuario'];
+    echo $passw = $_POST['txtpassword'];
 
-    // Sanitizar entrada
-    $user = sanitizeInput($_POST['txtusuario'], 'email');
-    $passw = $_POST['txtpassword']; // No sanitizar contraseña antes de verificar
-
-    // Validar entrada
+   // Validar entrada
     if (empty($user) || empty($passw)) {
       $this->view->mensaje = "Por favor, complete todos los campos.";
       $this->view->Render('login/index');
       return;
     }
 
-    $res = $this->model->Validar(['user' => $user, 'passw' => $passw]);
+    $res = $this->model->Validar($user, $passw);
 
     if ($res) {
       if ($res['chkusu']) {
@@ -44,7 +32,7 @@ class Login extends Controller
         $persona = $this->model->NombrePersonal($res['idpersonal']);
         if ($persona) {
           $_SESSION['nombre'] = $persona['personal'];
-          $_SESSION['foto'] = $persona['foto'];
+          $_SESSION['foto'] = "./public/".$persona['foto'];
         }
 
         // Regenerar ID de sesión por seguridad
@@ -68,9 +56,8 @@ class Login extends Controller
       $msg = "Usuario no reconocido";
     }
 
-
     $this->view->mensaje = $msg;
-    
+
     $this->view->Render('login/index');
   }
 
